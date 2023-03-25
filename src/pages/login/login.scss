@@ -1,0 +1,100 @@
+.login {
+  height: 100vh;
+  background-color: rgb(210, 210, 211);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    width: 55%;
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 600px;
+    overflow: hidden;
+
+    .left {
+      flex: 1;
+      background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+        url("https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg")
+          center;
+      background-size: cover;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      color: #fff;
+
+      h1 {
+        font-size: 100px;
+        line-height: 100px;
+      }
+    }
+
+    .right {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      justify-content: center;
+
+      h2 {
+        color: #555;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        
+        input {
+        border: none;
+        border-bottom: 1px solid lightgray;
+        padding: 10px 10px;
+
+          &:focus {
+            box-shadow: 0 0 0 0;
+            outline: 0;
+          }
+        }
+        
+        button {
+          width: 100%;
+          padding: 10px;
+          border: none;
+          background-color: #938eef;
+          color: #fff;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            filter: brightness(0.9)
+          }
+        }
+
+        span {
+          color: #555;
+          margin-bottom: -20px;
+          font-size: 14px;
+        }
+
+        .btn-register {
+          width: 100%;
+          padding: 10px;
+          border: none;
+          background-color: #f6727f;
+          color: #fff;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+  
+          &:hover {
+            filter: brightness(0.9)
+          }
+        }
+      }
+    }
+  }
+}
