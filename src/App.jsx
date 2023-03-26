@@ -1,40 +1,39 @@
 import { useContext } from "react";
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import Login from './pages/login'
-import Register from './pages/register'
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet,
-  Navigate
-} from "react-router-dom";
-
-import NavBar from './components/navBar'
+import { AuthContext } from "./context/authContext";
+import { DarkModeContext } from "./context/darkModeContext";
 import LeftBar from './components/LeftBar'
+import NavBar from './components/navBar'
 import RightBar from './components/rightBar'
 import Home from './pages/home'
+import Login from './pages/login'
 import Profile from './pages/profile'
+import Register from './pages/register'
 
-import { DarkModeContext } from "./context/darkModeContext";
-import { AuthContext } from "./context/authContext";
+import './style.scss'
 
 function App() {
 
   const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
+  const queryClient = new QueryClient();
 
   const Layout = () => {
     return (
-      <div className={`theme-${darkMode ? "dark" : "light"}`}>
-        <NavBar />
-        <div style={{ display: "flex" }}>
-          <LeftBar />
-          <div style={{ flex: 6 }}>
-            <Outlet />
+      <QueryClientProvider client={queryClient}>
+        <div className={`theme-${darkMode ? "dark" : "light"}`}>
+          <NavBar />
+          <div style={{ display: "flex" }}>
+            <LeftBar />
+            <div style={{ flex: 6 }}>
+              <Outlet />
+            </div>
+            <RightBar />
           </div>
-          <RightBar />
         </div>
-      </div>
+      </QueryClientProvider>
     )
   }
 

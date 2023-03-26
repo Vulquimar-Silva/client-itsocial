@@ -14,7 +14,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 import './navBar.scss'
 
-export default function NavBar() {
+const NavBar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
 
@@ -42,7 +42,7 @@ export default function NavBar() {
         <NotificationsOutlinedIcon />
         <div className="user">
           <img
-            src={currentUser.profilePic}
+            src={"/upload/" + currentUser.profilePic}
             alt=""
           />
           <span>{currentUser.name}</span>
@@ -51,3 +51,5 @@ export default function NavBar() {
     </div>
   )
 }
+
+export default NavBar
